@@ -151,7 +151,20 @@ def main():
         "cdx-pending",
         "cdx-lang",
         "cdx-ft-map",
+        "cdx-replay-v1",
     }
+    nav = re.search(r'<nav class="nav".*?</nav>', html, re.S)
+    if not nav:
+        fail("main nav missing")
+    else:
+        tabs = re.findall(r'data-tab="([^"]+)"', nav.group(0))
+        want = ["people", "frames", "compare", "replay", "create", "import"]
+        if tabs != want:
+            fail(f"nav tabs {tabs} != {want}")
+    if re.search(r'data-tab="(?:graph|kg|knowledge)"', html):
+        fail("Knowledge Graph must not be a nav tab")
+    if 'id="replay"' not in html:
+        fail("Replay Analyzer page missing")
     for m in re.finditer(r'localStorage\.setItem\((["\'])([^"\']+)\1', app + i18n):
         key = m.group(2)
         if key in allowed or key.startswith("cdx-ft:"):
