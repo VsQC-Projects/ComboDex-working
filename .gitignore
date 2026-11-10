@@ -3,4 +3,4 @@
 !wiki_server.py
 !.gitignore
 !pad/
-!pad/*.png
+!pad/**
