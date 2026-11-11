@@ -158,10 +158,10 @@ def main():
         fail("main nav missing")
     else:
         tabs = re.findall(r'data-tab="([^"]+)"', nav.group(0))
-        want = ["people", "frames", "compare", "replay", "create", "import"]
+        want = ["people", "frames", "compare", "replay", "create", "import", "knowledge"]
         if tabs != want:
             fail(f"nav tabs {tabs} != {want}")
-    if re.search(r'data-tab="(?:graph|kg|knowledge)"', html):
+    if re.search(r'data-tab="(?:graph|kg|knowledge-graph)"', html) or re.search(r'Knowledge Graph', html):
         fail("Knowledge Graph must not be a nav tab")
     if 'id="replay"' not in html:
         fail("Replay Analyzer page missing")

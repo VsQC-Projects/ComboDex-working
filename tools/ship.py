@@ -14,7 +14,10 @@ FILES = [
     "cdx-portraits.js",
     "cdx-ft.js",
     "cdx-app.js",
+    "cdx-kc-data.js",
+    "cdx-kc.js",
     "cdx.css",
+    "img/akali-5m-hitbox.png",
 ]
 
 
