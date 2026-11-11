@@ -39,7 +39,7 @@ def lum(r, g, b):
 def map_light(hexv, prop, theme):
     r, g, b, a = parse_hex(hexv)
     h, l, s = colorsys.rgb_to_hls(r, g, b)
-    if 0.66 <= h <= 0.88 and s > 0.12:
+    if (0.66 <= h <= 0.88 or 0.47 <= h <= 0.56) and s > 0.12:
         h = 0.07 if theme == "wood" else 0.02
         r, g, b = colorsys.hls_to_rgb(h, l, s)
         if prop not in ("color", "fill") and lum(r, g, b) >= 0.2 and not prop.startswith(("border", "outline")):
@@ -227,6 +227,16 @@ html[data-theme="wood"] button.primary,html[data-theme="dojo"] button.primary{co
 html[data-theme="official"] .home-tile:not(.home-kc):hover,html[data-theme="official"] .home-tile:not(.home-kc):focus-visible{border-color:#e8c77a;box-shadow:0 0 0 1px #e8c77a,0 0 14px #e8c77a66,0 0 32px #e8c77a33,inset 0 0 14px #e8c77a1f}
 html[data-theme="dojo"] .home-tile:not(.home-kc):hover,html[data-theme="dojo"] .home-tile:not(.home-kc):focus-visible{border-color:#d9412b;box-shadow:0 0 0 2px #d9412b,4px 4px 0 #d9412b}
 html[data-theme="wood"] .home-tile:not(.home-kc):hover,html[data-theme="wood"] .home-tile:not(.home-kc):focus-visible{border-color:#120c07;box-shadow:0 0 0 2px #120c07,0 6px 14px #3b261455}
+html[data-theme="dojo"] .home-tile.home-kc{background:linear-gradient(90deg,#f0a493 0%,#fbe3dd 65%);border:2px solid #1d1d22;box-shadow:4px 4px 0 #1d1d22}
+html[data-theme="dojo"] .home-tile.home-kc:hover,html[data-theme="dojo"] .home-tile.home-kc:focus-visible{background:linear-gradient(90deg,#ec8a75 0%,#fbe3dd 65%);border-color:#d9412b;box-shadow:0 0 0 2px #d9412b,4px 4px 0 #d9412b}
+html[data-theme="dojo"] .home-kc-icon{color:#b8321f}
+html[data-theme="dojo"] .home-kc-views span{background:#fff;border:1px solid #1d1d22;color:#1d1d22}
+html[data-theme="dojo"] .home-kc-views span:hover{border-color:#d9412b;color:#b8321f}
+html[data-theme="wood"] .home-tile.home-kc{background:repeating-linear-gradient(91deg,#0000 0 18px,#0000000d 18px 20px,#0000 20px 47px),linear-gradient(90deg,#b98a57 0%,#e2c290 65%);border:2px solid #2a1d12;box-shadow:0 6px 14px #3b261455}
+html[data-theme="wood"] .home-tile.home-kc:hover,html[data-theme="wood"] .home-tile.home-kc:focus-visible{border-color:#120c07;box-shadow:0 0 0 2px #120c07,0 6px 14px #3b261455}
+html[data-theme="wood"] .home-kc-icon{color:#5a2e10}
+html[data-theme="wood"] .home-kc-views span{background:#f6ead3;border:1px solid #8a4b1c;color:#2a1d12}
+html[data-theme="wood"] .home-kc-views span:hover{border-color:#120c07}
 html[data-theme="wood"] .token,html[data-theme="dojo"] .token{color:#f5f3f8}
 html[data-theme="wood"] .token.mod,html[data-theme="dojo"] .token.mod{color:var(--muted)}
 html[data-theme="dojo"] :is(select,input,textarea,summary):hover{border-color:#d9412b}
