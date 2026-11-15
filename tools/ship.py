@@ -10,15 +10,20 @@ ROOT = Path(r"c:\Users\amand\Downloads\Combo_Dex")
 LIVE = Path(r"C:\Users\amand\AppData\Local\Temp\ComboDex_live")
 FILES = [
     "index.html",
+    "Combo_Dex.html",
+    "console.html",
     "cdx-i18n.js",
     "cdx-portraits.js",
     "cdx-ft.js",
     "cdx-app.js",
+    "cdx-objets.js",
+    "cdx-refs.js",
     "cdx-kc-data.js",
     "cdx-kc-infil.js",
     "cdx-kc.js",
     "cdx.css",
-    "img/akali-5m-hitbox.png",
+    "cdx-theme.css",
+    "cdx-admin.css",
 ]
 
 
